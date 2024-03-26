@@ -13,11 +13,11 @@ utilizando Go (Golang) para o backend e HTML/CSS/JavaScript para o frontend.
    abaixo.
 
 2. Se estiver no 'Windows', apenas clice duas vezes no executável chamado
-   'main'.
+   'cli'.
 
 3. Se estiver no 'Linux', vá para o terminal e navegue até o diretório onde
    o arquivo 'Execute-me' está localizado e dê o seguinte comando:
-   Comando:  ./main
+   Comando:  ./cli
 
 OBS: NÃO SE PREOCUPE EM PROCURAR OS ARQUIVOS HTML'S , AO EXECUTAR O 'main'
      O CÓDIGO IRÁ LIGAR O SERVIDOR E ABRIR AUTOMATICAMENTE O 'cadastro.html' PRONTO

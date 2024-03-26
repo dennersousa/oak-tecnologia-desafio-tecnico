@@ -40,26 +40,28 @@
     </div>
 </div>
 
+
 <script>
+    // Script JavaScript para carregar a lista de produtos
     window.onload = function () {
-        fetch("http://localhost:8080/listagem-produtos", {
+        fetch("http://localhost:8080/listagem-produtos", { // Faz uma requisição GET para obter a lista de produtos
             method: "GET"
         })
-            .then(response => response.json())
+            .then(response => response.json()) // Converte a resposta para JSON
             .then(data => {
-                // Ordenando os produtos pelo valor
+                // Ordena os produtos pelo valor
                 data.sort((a, b) => a.value - b.value);
 
                 const productListDiv = document.getElementById("productList");
                 const tableContainer = productListDiv.querySelector('.table-container');
                 const tbody = tableContainer.querySelector('tbody');
 
-                // Adicionar os dados dos produtos às linhas da tabela
+                // Adiciona os dados dos produtos às linhas da tabela
                 data.forEach(product => {
                     const row = document.createElement("tr");
                     ["name", "description", "value", "for_sale"].forEach(property => {
                         const cell = document.createElement("td");
-                        // Formatando o valor para duas casas decimais
+                        // Formata o valor para duas casas decimais
                         const formattedValue = property === "value" ? "R$ " + product[property].toFixed(2) : product[property];
                         cell.textContent = formattedValue;
                         row.appendChild(cell);
