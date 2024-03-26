@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+
+/* Resetando estilos padrão */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicando a fonte 'Inter' em todo o documento */
+body {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0c0ce94d;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+/* Ajustes para a seção de imagem */
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5feffd7;
+    padding: 1rem;
+}
+
+.form-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajustes para a seção do formulário */
+.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+}
+
+/* Ajustes para o cabeçalho do formulário */
+.form-header {
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-list-button button {
+    border: none;
+    margin-left: 1rem;
+    margin-bottom: 0.8rem;
+    background-color: #6c63ff;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-list-button button:hover {
+    background-color: #6b63fff1;
+}
+
+.product-list-button button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #6c63ff;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+}
+
+/* Ajustes para a seção de entrada de dados */
+.input-group {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select {
+    width: 100%;
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.input-box input:hover,
+.input-box textarea:hover,
+.input-box select:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box input:focus-visible,
+.input-box textarea:focus-visible,
+.input-box select:focus-visible {
+    outline: 1px solid #6c63ff;
+}
+
+.input-box label,
+.gender-title h6 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box input::placeholder {
+    color: #000000be;
+}
+
+/* Ajustes para o botão de registro */
+.register-button button {
+    border: none;
+    background-color: #6c63ff;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+}
+
+.register-button button:hover {
+    background-color: #6b63fff1;
+}
+
+.register-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Ajustes de layout responsivo */
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+
+    .container {
+        width: 50%;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: auto;
+    }
+
+    .input-group {
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 5rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+}
+
+.table-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5feffd7;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.table-container th {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.table-container tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.table-container tbody tr:hover {
+    background-color: #ddd;
+}
+
+

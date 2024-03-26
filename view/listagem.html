@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="form-image">
+        <img src="./assets/img/bg.png" alt="">
+    </div>
+    <div class="form">
+        <div class="form-header">
+            <div class="title">
+                <h1>Lista de Produtos</h1>
+            </div>
+            <div class="product-list-button">
+                <button><a href="cadastro.html">Cadastrar novo produto</a></button>
+            </div>
+        </div>
+        <div class="input-group" id="productList">
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Disponível para venda</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        fetch("http://localhost:8080/listagem-produtos", {
+            method: "GET"
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Ordenando os produtos pelo valor
+                data.sort((a, b) => a.value - b.value);
+
+                const productListDiv = document.getElementById("productList");
+                const tableContainer = productListDiv.querySelector('.table-container');
+                const tbody = tableContainer.querySelector('tbody');
+
+                // Adicionar os dados dos produtos às linhas da tabela
+                data.forEach(product => {
+                    const row = document.createElement("tr");
+                    ["name", "description", "value", "for_sale"].forEach(property => {
+                        const cell = document.createElement("td");
+                        // Formatando o valor para duas casas decimais
+                        const formattedValue = property === "value" ? "R$ " + product[property].toFixed(2) : product[property];
+                        cell.textContent = formattedValue;
+                        row.appendChild(cell);
+                    });
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                alert("Erro ao carregar a lista de produtos. Por favor, tente novamente.");
+            });
+    };
+</script>
+</body>
+</html>
